@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   // be sure to include its associated Products
   Category.findAll({
     include: [Product]
-  }).then(dbCategory => {
+  }).then((dbCategory) => {
     res.json(dbCategory);
   });
 });
@@ -17,18 +17,18 @@ router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   Category.findOne({
-    include: [Product],
     where: {
       id: req.params.id
-    }
-  }).then(dbCategory => {
+    },
+    include: [Product]
+  }).then((dbCategory) => {
     res.json(dbCategory);
   });
 });
 
 router.post('/', (req, res) => {
   // create a new category
-  Category.create(req.body).then(dbCategory => {
+  Category.create(req.body).then((dbCategory) => {
     res.json(dbCategory);
   });
 });
@@ -44,7 +44,7 @@ router.put('/:id', (req, res) => {
         id: req.params.id
       }
     }
-  ).then(dbCategory => {
+  ).then((dbCategory) => {
     res.json(dbCategory);
   });
 });
@@ -55,7 +55,7 @@ router.delete('/:id', (req, res) => {
     where: {
       id: req.params.id
     }
-  }).then(dbCategory => {
+  }).then((dbCategory) => {
     res.json(dbCategory);
   });
 });
