@@ -4,7 +4,7 @@ const seedTags = require('./tag-seeds');
 const seedProductTags = require('./product-tag-seeds');
 
 const sequelize = require('../config/connection');
-
+// Fills all related tables with information
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');
